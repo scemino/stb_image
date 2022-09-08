@@ -5,7 +5,6 @@
 
 
 import streams
-import sequtils
 
 import components
 export components.Y
@@ -182,6 +181,7 @@ proc stbi_write_jpg_to_func(
 ): cint
   {.importc: "stbi_write_jpg_to_func", stbcall.}
 
+proc stbi_flip_vertically_on_write(flag: cint) {.importc: "stbi_flip_vertically_on_write", stbcall.}
 
 proc streamWriteData(context, data: pointer, size: cint) {.cdecl.} =
   if size > 0:
@@ -288,3 +288,5 @@ proc writeJPG*(w, h, comp: int; data: openarray[byte]; quality: int): seq[byte] 
 
   return cast[seq[byte]](buffer.data)
 
+proc flipVerticallyOnWrite*(flag: bool) =
+  stbi_flip_vertically_on_write(if flag: 1 else: 0)

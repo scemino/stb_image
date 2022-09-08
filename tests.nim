@@ -2,7 +2,6 @@ import unittest
 import os
 import stb_image/read as stbi
 import stb_image/write as stbiw
-import sequtils
 
 const
   testImage1 = "testdata/image1.png"
@@ -334,6 +333,7 @@ suite "Unit tests for stbi_image_write wrapper":
     pixels.addYA(0x00, 0x33)
 
     # Non-zero is returned on success
+    stbiw.flipVerticallyOnWrite(true)
     check(stbiw.writePNG(filename, width, height, channels, pixels))
 
     # Verify image is the same in testdata/

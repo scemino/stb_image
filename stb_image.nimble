@@ -1,11 +1,12 @@
 # Package
-version     = "2.5"
-author      = "Benjamin N. Summerton <define-private-public>"
-description = "A wrapper for stb_image (including stb_image_write & zlib client)."
-license     = "Unlicense (Public Domain)"
+version       = "2.6"
+author        = "Benjamin N. Summerton <define-private-public>"
+description   = "A wrapper for stb_image (including stb_image_write & zlib client)."
+license       = "Unlicense (Public Domain)"
+srcDir        = "src"
 
-# deps
-requires "nim >= 0.15.0"
+# Dependencies
+requires "nim >= 1.6.2"
 
 skipFiles = @["tests.nim"]
 skipDirs = @["testdata"]
